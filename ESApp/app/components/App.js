@@ -5,6 +5,7 @@ var {
     TabBarIOS,
     Navigation,
 } = React;
+var Icon = require('react-native-vector-icons/Ionicons');
 
 import Topic from './Topic';
 import User from './User';
@@ -18,39 +19,42 @@ class App extends Component {
     render() {
         return(
             <TabBarIOS>
-                <TabBarIOS.Item
-                    title="发现"
-                    selected={this.state.selectedTab === '发现'}
-                    onPress={() => {
-                            this.setState({
-                                selectedTab: "发现"
-                            })
-                        }
-                    }>
-                <Explore />
-                </TabBarIOS.Item>
-                <TabBarIOS.Item
-                    title="话题"
-                    selected={this.state.selectedTab === '话题'}
-                    onPress={() => {
-                            this.setState({
-                                selectedTab: "话题"
-                            })
-                        }
-                    }>
-                <Topic />
-                </TabBarIOS.Item>
-                <TabBarIOS.Item
-                    title="用户"
-                    selected={this.state.selectedTab === '用户'}
-                    onPress={() => {
-                            this.setState({
-                                selectedTab: "用户"
-                            })
-                        }
-                    }>
-                <User />
-                </TabBarIOS.Item>
+                <Icon.TabBarItem
+                  title="发现"
+                  iconName="navicon-round"
+                  selectedIconName="navicon-round"
+                  selected={this.state.selectedTab === "发现"}
+                  onPress={() => {
+                    this.setState({
+                      selectedTab: "发现",
+                    });
+                  }}>
+                  <Topic />
+                </Icon.TabBarItem>
+                <Icon.TabBarItem
+                  title="话题"
+                  iconName="chatboxes"
+                  selectedIconName="chatboxes"
+                  selected={this.state.selectedTab === "话题"}
+                  onPress={() => {
+                    this.setState({
+                      selectedTab: "话题",
+                    });
+                  }}>
+                  <Topic />
+                </Icon.TabBarItem>
+                <Icon.TabBarItem
+                  title="用户"
+                  iconName="person-stalker"
+                  selectedIconName="person-stalker"
+                  selected={this.state.selectedTab === "用户"}
+                  onPress={() => {
+                    this.setState({
+                      selectedTab: "用户",
+                    });
+                  }}>
+                  <User />
+                </Icon.TabBarItem>
             </TabBarIOS>
         )
     }
