@@ -1,13 +1,18 @@
 var React = require('react-native');
 var {
-    Component,
-    NavigatorIOS,
-    TabBarIOS,
-    Navigation,
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TabBarIOS,
+  NavigatorIOS,
+  TouchableOpacity,
+  Component,
 } = React;
 var Icon = require('react-native-vector-icons/Ionicons');
 
-import Topic from './Topic';
+import TopicList from './topic/TopicList';
 import User from './User';
 import Explore from './Explore';
 
@@ -16,6 +21,7 @@ class App extends Component {
         super(props);
         this.state = {selectedTab: '发现'};
     }
+
     render() {
         return(
             <TabBarIOS>
@@ -29,7 +35,12 @@ class App extends Component {
                       selectedTab: "发现",
                     });
                   }}>
-                  <Topic />
+                  <NavigatorIOS
+                      style={styles.navigator}
+                      initialRoute={{
+                        component: Explore,
+                        title: "发现"
+                      }}/>      
                 </Icon.TabBarItem>
                 <Icon.TabBarItem
                   title="话题"
@@ -41,7 +52,12 @@ class App extends Component {
                       selectedTab: "话题",
                     });
                   }}>
-                  <Topic />
+                  <NavigatorIOS
+                      style={styles.navigator}
+                      initialRoute={{
+                        component: TopicList,
+                        title: "话题"
+                      }}/>               
                 </Icon.TabBarItem>
                 <Icon.TabBarItem
                   title="用户"
@@ -53,11 +69,43 @@ class App extends Component {
                       selectedTab: "用户",
                     });
                   }}>
-                  <User />
+                  <NavigatorIOS
+                      style={styles.navigator}
+                      initialRoute={{
+                        component: User,
+                        title: "用户"
+                      }}/>      
                 </Icon.TabBarItem>
             </TabBarIOS>
         )
     }
 }
+
+var styles = StyleSheet.create({
+  navigator: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  tabContent: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  tabText: {
+    color: 'white',
+  },
+  button: {
+    marginTop: 20,
+    padding: 8,
+    backgroundColor: 'white',
+    borderRadius: 4,
+  },
+});
+
 
 export default App;
