@@ -20,9 +20,9 @@ export function getUser(page, current) {
     	dispatch({
     		type: "FETCH_USER_SUCCESS",
     		payload: {
-    			items: current.concat(response)
-    		},
-    		page: page+1
+    			items: current.concat(response),
+                page: page+1
+    		}
     	})
     })
     .catch(error => {

@@ -24,7 +24,8 @@ export default createReducer(initialState, {
   [FETCH_TOPIC_SUCCESS](state, payload) {
     return state.withMutations(map => {
       map.set('isFetching', false)
-         .set('items', payload.payload.items);
+         .set('items', payload.payload.items)
+         .set('page', payload.payload.page);
     });
   },
   [FETCH_TOPIC_FAILED](state, payload) {

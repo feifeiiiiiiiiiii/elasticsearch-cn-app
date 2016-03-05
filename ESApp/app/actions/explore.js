@@ -20,9 +20,9 @@ export function questions(page, current) {
     	dispatch({
     		type: "FETCH_EXPLORE_SUCCESS",
     		payload: {
-    			items: current.concat(response)
+    			items: current.concat(response),
+                page: page+1
     		},
-    		page: page+1
     	})
     })
     .catch(error => {

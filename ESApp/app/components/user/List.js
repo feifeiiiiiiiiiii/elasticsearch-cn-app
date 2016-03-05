@@ -42,6 +42,8 @@ class List extends Component {
 
     onEndReached() {
         const {userAction, user} = this.props;
+        if(user.isFetching) return;
+        userAction.getUser(user.page, user.items);
     }
 
     render() {
@@ -50,17 +52,15 @@ class List extends Component {
     	return (
     		<View style={styles.outSideContainer}>
              {user.isFetching && Utils.loading }
-             {!user.isFetching && 
     		  <ListView
                 dataSource={ds.cloneWithRows(items)}
                 renderRow={this._renderRow}
                 keyboardDismissMode="on-drag"
                 automaticallyAdjustContentInsets={false}
-                onEndReachedThreshold={200}
+                onEndReachedThreshold={400}
                 onEndReached={this.onEndReached}
                 keyboardShouldPersistTaps={true}
                 showsVerticalScrollIndicator={true}/>	
-            }
             </View>
     	)
     }

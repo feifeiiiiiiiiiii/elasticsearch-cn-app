@@ -4,7 +4,7 @@ export const FETCH_TOPIC_REQUEST = 'FETCH_TOPIC_REQUEST';
 export const FETCH_TOPIC_SUCCESS = 'FETCH_TOPIC_SUCCESS';
 export const FETCH_TOPIC_FAILED = 'FETCH_TOPIC_FAILED';
 
-export function users(page, current) {
+export function topic(page, current) {
   const uri = `http://proxy.elasticsearch.thnuclub.com/api/topics?page=${page}`;
   return dispatch => {
     dispatch({
@@ -20,9 +20,9 @@ export function users(page, current) {
     	dispatch({
     		type: "FETCH_TOPIC_SUCCESS",
     		payload: {
-    			items: current.concat(response)
+    			items: current.concat(response),
+                page: page+1
     		},
-    		page: page+1
     	})
     })
     .catch(error => {

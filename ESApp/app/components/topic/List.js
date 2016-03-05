@@ -24,11 +24,12 @@ class Topic extends Component {
         super(props);
         this._loadPage = this._loadPage.bind(this);
         this._renderRow = this._renderRow.bind(this);
+        this.onEndReached = this.onEndReached.bind(this);
     }
 
     componentDidMount() {
         const topicAction = this.props.topicAction;
-        topicAction.users(1, []);
+        topicAction.topic(1, []);
     }
 
     _renderRow(row){
@@ -49,23 +50,28 @@ class Topic extends Component {
         });
     }
 
+    onEndReached() {
+        const {topicAction, topic} = this.props;
+        if(topic.isFetching) return;
+        topicAction.topic(topic.page, topic.items);
+    }
+
     render() {
         const {topic} = this.props;
         const items = topic.items;
     	return (
             <View style={styles.outSideContainer}>
               {topic.isFetching && Utils.loading }
-             {!topic.isFetching && 
     		  <ListView
                 dataSource={ds.cloneWithRows(items)}
                 renderRow={this._renderRow}
                 keyboardDismissMode="on-drag"
                 automaticallyAdjustContentInsets={false}
+                onEndReached={this.onEndReached}
                 onEndReachedThreshold={300}
                 pageSize={10}
                 keyboardShouldPersistTaps={true}
                 showsVerticalScrollIndicator={true}/>
-                }	
             </View>
     	)
     }

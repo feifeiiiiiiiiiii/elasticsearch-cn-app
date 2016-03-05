@@ -23,6 +23,7 @@ class List extends Component {
         super(props);
         this._loadPage = this._loadPage.bind(this);
         this._renderRow = this._renderRow.bind(this);
+        this.onEndReached = this.onEndReached.bind(this);
     }
 
     componentDidMount() {
@@ -39,23 +40,29 @@ class List extends Component {
     _loadPage(row) {
     }
 
+    onEndReached() {
+        const {exploreAction, explore} = this.props;
+        if(explore.isFetching) return;
+        exploreAction.questions(explore.page, explore.items);
+    }
+
+
     render() {
         const {explore} = this.props;
         const items = explore.items;
     	return (
     		<View style={styles.outSideContainer}>
              {explore.isFetching && Utils.loading }
-             {!explore.isFetching && 
     		  <ListView
                 dataSource={ds.cloneWithRows(items)}
                 renderRow={this._renderRow}
                 keyboardDismissMode="on-drag"
                 automaticallyAdjustContentInsets={false}
                 onEndReachedThreshold={300}
+                onEndReached={this.onEndReached}
                 pageSize={10}
                 keyboardShouldPersistTaps={true}
                 showsVerticalScrollIndicator={true}/>
-            }	
             </View>
     	)
     }
