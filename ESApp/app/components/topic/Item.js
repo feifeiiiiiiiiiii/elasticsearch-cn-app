@@ -29,7 +29,7 @@ export default class Item extends Component {
                     {item.tag} 
                   </Text>
                   <Text style={styles.tagDesc} numberOfLines={1}>
-                    {item.talk} {item.follow}
+                    {item.talk}
                   </Text>
                   <Text style={styles.tagDesc} numberOfLines={1}>
                       {item.desc}

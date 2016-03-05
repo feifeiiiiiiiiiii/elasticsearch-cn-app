@@ -1,6 +1,7 @@
 var React = require('react-native');
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+var Utils = require('../util');
 
 import * as actions from '../../actions/topic';
 
@@ -27,7 +28,7 @@ class Topic extends Component {
 
     componentDidMount() {
         const topicAction = this.props.topicAction;
-        topicAction.getList(1);
+        topicAction.users(1, []);
     }
 
     _renderRow(row){
@@ -53,6 +54,8 @@ class Topic extends Component {
         const items = topic.items;
     	return (
             <View style={styles.outSideContainer}>
+              {topic.isFetching && Utils.loading }
+             {!topic.isFetching && 
     		  <ListView
                 dataSource={ds.cloneWithRows(items)}
                 renderRow={this._renderRow}
@@ -61,7 +64,8 @@ class Topic extends Component {
                 onEndReachedThreshold={300}
                 pageSize={10}
                 keyboardShouldPersistTaps={true}
-                showsVerticalScrollIndicator={true}/>	
+                showsVerticalScrollIndicator={true}/>
+                }	
             </View>
     	)
     }

@@ -1,6 +1,7 @@
 var React = require('react-native');
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+var Utils = require('../util');
 
 import * as actions from '../../actions/user';
 
@@ -22,11 +23,12 @@ class List extends Component {
         super(props);
         this._loadPage = this._loadPage.bind(this);
         this._renderRow = this._renderRow.bind(this);
+        this.onEndReached = this.onEndReached.bind(this);
     }
 
     componentDidMount() {
         const userAction = this.props.userAction;
-        userAction.getUser(1);
+        userAction.getUser(1, []);
     }
 
     _renderRow(row){
@@ -38,20 +40,27 @@ class List extends Component {
     _loadPage(row) {
     }
 
+    onEndReached() {
+        const {userAction, user} = this.props;
+    }
+
     render() {
         const {user} = this.props;
         const items = user.items;
     	return (
     		<View style={styles.outSideContainer}>
+             {user.isFetching && Utils.loading }
+             {!user.isFetching && 
     		  <ListView
                 dataSource={ds.cloneWithRows(items)}
                 renderRow={this._renderRow}
                 keyboardDismissMode="on-drag"
                 automaticallyAdjustContentInsets={false}
-                onEndReachedThreshold={300}
-                pageSize={10}
+                onEndReachedThreshold={200}
+                onEndReached={this.onEndReached}
                 keyboardShouldPersistTaps={true}
                 showsVerticalScrollIndicator={true}/>	
+            }
             </View>
     	)
     }

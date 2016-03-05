@@ -22,5 +22,5 @@ module.exports = {
     height: Dimensions.get('window').height
   },
   /*loading效果*/
-  loading: <ActivityIndicatorIOS color="#3E00FF" style={{marginTop:40,marginLeft:Dimensions.get('window').width/2-10}}/>
+  loading: <ActivityIndicatorIOS color="#3E00FF" style={{marginTop:140,marginLeft:Dimensions.get('window').width/2-200}}/>
 };

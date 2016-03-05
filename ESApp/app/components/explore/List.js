@@ -1,6 +1,7 @@
 var React = require('react-native');
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+var Utils = require('../util');
 
 import * as actions from '../../actions/explore';
 
@@ -26,7 +27,7 @@ class List extends Component {
 
     componentDidMount() {
         const exploreAction = this.props.exploreAction;
-        exploreAction.getExplore(1);
+        exploreAction.questions(1, []);
     }
 
     _renderRow(row){
@@ -43,6 +44,8 @@ class List extends Component {
         const items = explore.items;
     	return (
     		<View style={styles.outSideContainer}>
+             {explore.isFetching && Utils.loading }
+             {!explore.isFetching && 
     		  <ListView
                 dataSource={ds.cloneWithRows(items)}
                 renderRow={this._renderRow}
@@ -51,7 +54,8 @@ class List extends Component {
                 onEndReachedThreshold={300}
                 pageSize={10}
                 keyboardShouldPersistTaps={true}
-                showsVerticalScrollIndicator={true}/>	
+                showsVerticalScrollIndicator={true}/>
+            }	
             </View>
     	)
     }

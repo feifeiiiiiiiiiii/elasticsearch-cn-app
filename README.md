@@ -11,6 +11,11 @@
 ## 主要技术
 + Recat Native && react-redux
 
+## 使用ES中文社区的API
++ 发现 http://elasticsearch.cn/sort_type-new__day-0__is_recommend-0__page-1
++ 话题 http://elasticsearch.cn/topic/page-2
++ 用户 http://elasticsearch.cn/people/page-1
+
 ## 效果如下图
 ![发现](imgs/explore.png)
 ![话题](imgs/topic.png)
