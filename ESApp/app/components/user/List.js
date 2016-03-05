@@ -2,10 +2,9 @@ var React = require('react-native');
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as actions from '../../actions/topic';
+import * as actions from '../../actions/user';
 
-import TopicItem from './TopicItem';
-import WebView from '../WebView';
+import Item from './Item';
 
 var {
     Component,
@@ -18,7 +17,7 @@ var {
 
 let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-class Topic extends Component {
+class List extends Component {
     constructor(props) {
         super(props);
         this._loadPage = this._loadPage.bind(this);
@@ -26,33 +25,24 @@ class Topic extends Component {
     }
 
     componentDidMount() {
-        const topicAction = this.props.topicAction;
-        topicAction.getList(1);
+        const userAction = this.props.userAction;
+        userAction.getUser(1);
     }
 
     _renderRow(row){
         return (
-          <TopicItem topic={row} onSelect={() => this._loadPage(row)} />
+            <Item user={row} />
         );
     }
 
     _loadPage(row) {
-        console.log(this.props.navigator)
-        this.props.navigator.push({
-          component: WebView,
-          passProps:{
-            backName: '话题',
-            title: row.tag,
-            source: "http://elasticsearch.cn/explore/ajax/list/sort_type-new__topic_id-38,6__page-2"
-          }
-        });
     }
 
     render() {
-        const {topic} = this.props;
-        const items = topic.items;
+        const {user} = this.props;
+        const items = user.items;
     	return (
-            <View style={styles.outSideContainer}>
+    		<View style={styles.outSideContainer}>
     		  <ListView
                 dataSource={ds.cloneWithRows(items)}
                 renderRow={this._renderRow}
@@ -68,17 +58,17 @@ class Topic extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    topic: state.topic.toJS()
+    user: state.user.toJS()
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    topicAction: bindActionCreators(actions, dispatch)
+    userAction: bindActionCreators(actions, dispatch)
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Topic)
+)(List)
 
 var styles = StyleSheet.create({
     outSideContainer: {

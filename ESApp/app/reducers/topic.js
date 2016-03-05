@@ -32,14 +32,35 @@ export default createReducer(initialState, {
             id: 1
          },{
             img: "http://elasticsearch.cn/uploads/topic/20151223/4328f7f16900c766e3fa6e8590a4abc2_50_50.png",
-            tag: "es",
+            tag: "elk",
             talk: "93 个讨论",
             follow: "94 个关注",
             desc: "7 天新增 1 个讨论, 30 天新增 5 个讨论",
             id: 2
          },{
             img: "http://elasticsearch.cn/uploads/topic/20151223/4328f7f16900c766e3fa6e8590a4abc2_50_50.png",
+            tag: "dsl",
+            talk: "93 个讨论",
+            follow: "94 个关注",
+            desc: "7 天新增 1 个讨论, 30 天新增 5 个讨论",
+            id: 3
+         },{
+            img: "http://elasticsearch.cn/uploads/topic/20151223/4328f7f16900c766e3fa6e8590a4abc2_50_50.png",
             tag: "es",
+            talk: "93 个讨论",
+            follow: "94 个关注",
+            desc: "7 天新增 1 个讨论, 30 天新增 5 个讨论",
+            id: 1
+         },{
+            img: "http://elasticsearch.cn/uploads/topic/20151223/4328f7f16900c766e3fa6e8590a4abc2_50_50.png",
+            tag: "elk",
+            talk: "93 个讨论",
+            follow: "94 个关注",
+            desc: "7 天新增 1 个讨论, 30 天新增 5 个讨论",
+            id: 2
+         },{
+            img: "http://elasticsearch.cn/uploads/topic/20151223/4328f7f16900c766e3fa6e8590a4abc2_50_50.png",
+            tag: "dsl",
             talk: "93 个讨论",
             follow: "94 个关注",
             desc: "7 天新增 1 个讨论, 30 天新增 5 个讨论",

@@ -12,9 +12,9 @@ var {
 } = React;
 var Icon = require('react-native-vector-icons/Ionicons');
 
-import TopicList from './topic/TopicList';
-import User from './User';
-import Explore from './Explore';
+import TopicList from './topic/List';
+import UserList from './user/List';
+import ExploreList from './explore/List';
 
 class App extends Component {
     constructor(props) {
@@ -38,7 +38,7 @@ class App extends Component {
                   <NavigatorIOS
                       style={styles.navigator}
                       initialRoute={{
-                        component: Explore,
+                        component: ExploreList,
                         title: "发现"
                       }}/>      
                 </Icon.TabBarItem>
@@ -72,7 +72,7 @@ class App extends Component {
                   <NavigatorIOS
                       style={styles.navigator}
                       initialRoute={{
-                        component: User,
+                        component: UserList,
                         title: "用户"
                       }}/>      
                 </Icon.TabBarItem>
