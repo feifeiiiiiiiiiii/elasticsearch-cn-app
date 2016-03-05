@@ -21,7 +21,7 @@ module.exports = React.createClass({
           contentInset={{top:-40}}
           startInLoadingState={true}
           style={{width: Util.size.width, height:Util.size.height -50}}
-          url={this.props.source}></WebView>
+          source={{uri: this.props.source}}></WebView>
       </View>
     );
   }

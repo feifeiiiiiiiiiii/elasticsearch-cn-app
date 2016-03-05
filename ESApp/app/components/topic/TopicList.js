@@ -43,7 +43,7 @@ class Topic extends Component {
           passProps:{
             backName: '话题',
             title: row.tag,
-            url: "http://elasticsearch.cn/topic/"+row.tag
+            source: "http://elasticsearch.cn/explore/ajax/list/sort_type-new__topic_id-38,6__page-2"
           }
         });
     }
