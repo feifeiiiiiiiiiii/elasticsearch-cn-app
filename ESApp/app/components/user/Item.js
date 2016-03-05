@@ -48,14 +48,14 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   tagTitle: {
-    fontSize: 18,
+    fontSize: 12,
     fontWeight: '500',
     marginBottom: 2,
   },
   tagDesc: {
     marginTop: 4,
     color: '#999999',
-    fontSize: 14,
+    fontSize: 12,
   },
   row: {
     alignItems: 'center',
