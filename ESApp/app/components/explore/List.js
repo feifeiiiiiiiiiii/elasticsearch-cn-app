@@ -6,6 +6,8 @@ var Utils = require('../util');
 import * as actions from '../../actions/explore';
 
 import Item from './Item';
+import WebView from '../WebView';
+
 
 var {
     Component,
@@ -33,11 +35,19 @@ class List extends Component {
 
     _renderRow(row){
         return (
-            <Item explore={row} />
+            <Item explore={row} onSelect={() => this._loadPage(row)} />
         );
     }
 
     _loadPage(row) {
+        this.props.navigator.push({
+          component: WebView,
+          passProps:{
+            backName: '发现',
+            title: row.question,
+            source: "http://proxy.elasticsearch.thnuclub.com/question/"+row.id
+          }
+        });
     }
 
     onEndReached() {

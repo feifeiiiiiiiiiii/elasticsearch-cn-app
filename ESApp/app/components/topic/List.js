@@ -39,7 +39,6 @@ class Topic extends Component {
     }
 
     _loadPage(row) {
-        console.log(this.props.navigator)
         this.props.navigator.push({
           component: WebView,
           passProps:{
