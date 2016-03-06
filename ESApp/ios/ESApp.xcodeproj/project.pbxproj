@@ -32,6 +32,7 @@
 		DE537D541C888BA4000AA380 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE537D4C1C888BA4000AA380 /* Octicons.ttf */; };
 		DE537D551C888BA4000AA380 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE537D4D1C888BA4000AA380 /* Zocial.ttf */; };
 		DE537D6D1C8AE8F4000AA380 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = DE537D6C1C8AE8F4000AA380 /* main.jsbundle */; };
+		DEA5AAC01C8C054000C93BC8 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = DEA5AABF1C8C054000C93BC8 /* main.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		DE537D4C1C888BA4000AA380 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		DE537D4D1C888BA4000AA380 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		DE537D6C1C8AE8F4000AA380 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ESApp/main.jsbundle; sourceTree = "<group>"; };
+		DEA5AABF1C8C054000C93BC8 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 				DE537D4B1C888BA4000AA380 /* MaterialIcons.ttf */,
 				DE537D4C1C888BA4000AA380 /* Octicons.ttf */,
 				DE537D4D1C888BA4000AA380 /* Zocial.ttf */,
+				DEA5AABF1C8C054000C93BC8 /* main.jsbundle */,
 				DE537D6C1C8AE8F4000AA380 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -566,6 +569,7 @@
 				DE537D531C888BA4000AA380 /* MaterialIcons.ttf in Resources */,
 				DE537D541C888BA4000AA380 /* Octicons.ttf in Resources */,
 				DE537D551C888BA4000AA380 /* Zocial.ttf in Resources */,
+				DEA5AAC01C8C054000C93BC8 /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				DE537D501C888BA4000AA380 /* FontAwesome.ttf in Resources */,
 				DE537D4F1C888BA4000AA380 /* EvilIcons.ttf in Resources */,
