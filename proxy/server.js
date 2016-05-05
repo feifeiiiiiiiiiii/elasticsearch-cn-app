@@ -64,6 +64,25 @@ server.get('/questions', function (req, res, next) {
   })
 });
 
+server.get('/questions/:id', function (req, res, next) {
+  var questionId = req.params.id;
+  var base = 'http://proxy.elasticsearch.thnuclub.com/question/'+ questionId;
+  request(base, function(err, response, body) {
+  	if(err) {
+  		return next(err);
+  	}
+  	try {
+  		data = util.parseQuestionDetail(body);
+  		res.send(200, data);
+  		return next();
+  	} catch(e) {
+      console.log(e)
+  		return next("parse error");
+  	}
+
+  })
+})
+
 server.listen(8080, function () {
   console.log('%s listening at %s', server.name, server.url);
 });
