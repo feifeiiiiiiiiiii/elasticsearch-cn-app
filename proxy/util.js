@@ -97,7 +97,7 @@ parseQuestionDetail = function(body) {
   $('.mod-body.aw-feed-list .aw-item').each(function(i, e) {
     var tmp = {}
 		tmp['img'] = $(e).find('.aw-user-img img')[0].attribs.src;
-    tmp['nickname'] = $(e).find('.aw-user-name').text().replace(/\s+/g, '');
+    tmp['nickname'] = $(e).find('a.aw-user-name').text().replace(/\s+/g, '');
     tmp['tag'] = $(e).find('.title p>span').text();
     tmp['content'] = $(e).find('.markitup-box').text();
     data.push(tmp)
@@ -115,7 +115,6 @@ parseUserDetail = function(body) {
   $('.aw-item').each(function(i, e) {
     var tmp = {};
 		tmp['question'] = $(e).find('.mod-head h4').text().replace(/\s+/g, '');
-    console.log('aaaaaaaa')
 		var arr = $(e).find('.mod-head h4>a')[0].attribs.href.split('/');
 		tmp['id'] = arr[arr.length-1];
 		tmp['desc'] = $(e).find('.mod-body p').text().replace(/\s+/g, '');

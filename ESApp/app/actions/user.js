@@ -1,22 +1,17 @@
-import { checkHttpStatus } from '../lib/utils';
+import HttpClient from '../lib/httpClient';
+import config from '../config';
 
 export const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST';
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
 export const FETCH_USER_FAILED = 'FETCH_USER_FAILED';
 
 export function getUser(page, current) {
-  const uri = `http://proxy.elasticsearch.thnuclub.com/api/users?page=${page}`;
+  const uri = `${config.apiRoot}/users?page=${page}`;
   return dispatch => {
     dispatch({
       type: "FETCH_USER_REQUEST"
     });
-    return fetch(uri, {
-    	method: "get"
-    }).then(checkHttpStatus)
-    .then((res) => {
-    	return res.json()
-    })
-    .then(response => {
+    return HttpClient.get(uri).then(response => {
     	dispatch({
     		type: "FETCH_USER_SUCCESS",
     		payload: {

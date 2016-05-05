@@ -1,22 +1,17 @@
-import { checkHttpStatus } from '../lib/utils';
+import HttpClient from '../lib/httpClient';
+import config from '../config';
 
 export const FETCH_TOPIC_REQUEST = 'FETCH_TOPIC_REQUEST';
 export const FETCH_TOPIC_SUCCESS = 'FETCH_TOPIC_SUCCESS';
 export const FETCH_TOPIC_FAILED = 'FETCH_TOPIC_FAILED';
 
 export function topic(page, current) {
-  const uri = `http://proxy.elasticsearch.thnuclub.com/api/topics?page=${page}`;
+  const uri = `${config.apiRoot}/topics?page=${page}`;
   return dispatch => {
     dispatch({
       type: "FETCH_TOPIC_REQUEST"
     });
-    return fetch(uri, {
-    	method: "get"
-    }).then(checkHttpStatus)
-    .then((res) => {
-    	return res.json()
-    })
-    .then(response => {
+    return HttpClient.get(uri).then(response => {
     	dispatch({
     		type: "FETCH_TOPIC_SUCCESS",
     		payload: {
