@@ -109,9 +109,27 @@ parseQuestionDetail = function(body) {
   };
 }
 
+parseUserDetail = function(body) {
+  var $ = cheerio.load(body);
+  var data = [];
+  $('.aw-item').each(function(i, e) {
+    var tmp = {};
+		tmp['question'] = $(e).find('.mod-head h4').text().replace(/\s+/g, '');
+    console.log('aaaaaaaa')
+		var arr = $(e).find('.mod-head h4>a')[0].attribs.href.split('/');
+		tmp['id'] = arr[arr.length-1];
+		tmp['desc'] = $(e).find('.mod-body p').text().replace(/\s+/g, '');
+    data.push(tmp);
+  })
+  return data;
+}
+
+
+
 module.exports = {
 	parseTopic: parseTopic,
 	parseQuestion: parseQuestion,
 	parseUser: parseUser,
-  parseQuestionDetail: parseQuestionDetail
+  parseQuestionDetail: parseQuestionDetail,
+  parseUserDetail: parseUserDetail
 }
